@@ -1,0 +1,321 @@
+<title>תוצאות הבחירות לכנסת ה-26</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@700;900&family=Heebo:wght@400;500;700;800&display=swap">
+<style>
+:root{
+  --bg:#f5f6fa;--surface:#ffffff;--surface-2:#eef0f7;--fg:#141829;--muted:#5a6181;--line:#dfe2ee;
+  --accent:#1e47b5;--accent-soft:#e2e9fd;--below:#b9bfd3;--thr:#c2410c;
+  --warn-bg:#fff5dc;--warn-fg:#6f4a00;--warn-line:#f1d48a;
+  --slip:#ffffff;--slip-fg:#141829;--slip-line:#c9cede;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0d1020;--surface:#151a2e;--surface-2:#1b2139;--fg:#e7e9f4;--muted:#9aa1bf;--line:#272d48;
+  --accent:#7d9fff;--accent-soft:#1c2650;--below:#465072;--thr:#fb923c;
+  --warn-bg:#2a2311;--warn-fg:#f1c868;--warn-line:#4d3f18;
+  --slip:#eceef6;--slip-fg:#141829;--slip-line:#eceef6;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1020;--surface:#151a2e;--surface-2:#1b2139;--fg:#e7e9f4;--muted:#9aa1bf;--line:#272d48;
+  --accent:#7d9fff;--accent-soft:#1c2650;--below:#465072;--thr:#fb923c;
+  --warn-bg:#2a2311;--warn-fg:#f1c868;--warn-line:#4d3f18;
+  --slip:#eceef6;--slip-fg:#141829;--slip-line:#eceef6;color-scheme:dark}
+*{box-sizing:border-box}
+body{direction:rtl;background:var(--bg);color:var(--fg);font-family:"Heebo",system-ui,"Segoe UI",Arial,sans-serif;font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px;
+  font-variant-numeric:tabular-nums}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+header{display:flex;flex-direction:column;gap:8px}
+.eyebrow{font-size:12px;letter-spacing:.06em;color:var(--muted);font-weight:500}
+h1{font-family:"Frank Ruhl Libre","Times New Roman",serif;font-weight:900;font-size:clamp(28px,6vw,42px);line-height:1.1;margin:0;text-wrap:balance}
+.asof{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;color:var(--muted);font-size:14px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:12px;font-weight:500;color:var(--fg)}
+.badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--muted)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.tile .k{font-size:12.5px;color:var(--muted)}
+.tile .v{font-size:24px;font-weight:800;letter-spacing:-.01em}
+.tile .s{font-size:12px;color:var(--muted)}
+.progress{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px}
+.progress .row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px}
+.track{height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden;position:relative}
+.track>i{position:absolute;inset-block:0;inset-inline-start:0;background:var(--accent);border-radius:99px;min-width:3px}
+.note{background:var(--warn-bg);color:var(--warn-fg);border:1px solid var(--warn-line);border-radius:12px;padding:12px 14px;font-size:14px}
+.tabs{display:flex;gap:4px;background:var(--surface-2);border-radius:12px;padding:4px;align-self:flex-start;max-width:100%}
+.tabs button{font:inherit;font-weight:700;border:0;background:transparent;color:var(--muted);padding:8px 16px;border-radius:9px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--surface);color:var(--fg);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+section{display:flex;flex-direction:column;gap:14px}
+h2{font-size:19px;margin:0;font-weight:800}
+.sub{color:var(--muted);font-size:13.5px;margin:0;max-width:68ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.slip{display:inline-flex;align-items:center;justify-content:center;min-width:46px;height:34px;padding:0 6px;background:var(--slip);color:var(--slip-fg);
+  border:1px solid var(--slip-line);border-radius:4px;font-weight:800;font-size:17px;box-shadow:0 1px 0 rgba(0,0,0,.06);flex:none}
+.slip.sm{min-width:36px;height:26px;font-size:13.5px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:8px;border-radius:2px;background:var(--accent);display:inline-block}
+.sw.b{background:var(--below)}
+.sw.t{width:0;height:12px;border-inline-start:2px dashed var(--thr);border-radius:0;background:none}
+.rows{display:flex;flex-direction:column}
+.prow{display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.prow:first-child{border-top:0}
+.pname{min-width:0;display:flex;flex-direction:column;gap:5px}
+.pname .t{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.pname b{font-weight:700}
+.pname small{color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.bar{height:10px;background:var(--surface-2);border-radius:3px;position:relative}
+.bar>i{position:absolute;inset-block:0;inset-inline-start:0;background:var(--accent);border-radius:3px}
+.bar.below>i{background:var(--below)}
+.bar>u{position:absolute;inset-block:-4px;border-inline-start:2px dashed var(--thr)}
+.nums{text-align:end;display:flex;flex-direction:column;align-items:flex-end;gap:2px;min-width:74px}
+.nums .p{font-weight:800;font-size:16px}
+.nums .c{font-size:12px;color:var(--muted)}
+.seatpill{font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:1px 8px;white-space:nowrap}
+.seatpill.out{color:var(--muted);background:var(--surface-2);font-weight:500}
+details.more>summary{cursor:pointer;color:var(--accent);font-weight:700;font-size:14px;list-style:none}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::before{content:"+ "}
+details.more[open]>summary::before{content:"− "}
+.zero{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.zero span{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);background:var(--surface-2);border-radius:8px;padding:4px 8px 4px 4px}
+.seats{display:flex;flex-direction:column;gap:10px}
+.stack{display:flex;height:36px;border-radius:6px;overflow:hidden;gap:2px;position:relative;background:var(--surface-2)}
+.stack>div{background:var(--accent);display:flex;align-items:center;justify-content:center;color:var(--surface);font-weight:800;font-size:13px;min-width:0;overflow:hidden}
+.stack>u{position:absolute;inset-block:-3px;border-inline-start:2px solid var(--fg);text-decoration:none}
+.seatlist{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13.5px}
+.seatlist span{display:inline-flex;align-items:center;gap:6px}
+.seatlist i{width:10px;height:10px;border-radius:2px;background:var(--accent);display:inline-block}
+.tools{display:flex;flex-wrap:wrap;gap:10px}
+.tools input,.tools select{font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:9px 12px;min-width:0}
+.tools input{flex:1 1 220px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+details.city{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;min-width:0}
+details.city>summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:8px}
+details.city>summary::-webkit-details-marker{display:none}
+.chead{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.chead b{font-size:17px;font-weight:800}
+.chead span{font-size:12px;color:var(--accent);font-weight:700;white-space:nowrap}
+details.city[open] .chead span .o{display:none}
+details.city:not([open]) .chead span .c{display:none}
+.cmeta{font-size:12.5px;color:var(--muted)}
+.lead{display:flex;align-items:center;gap:8px;font-size:14px}
+.lead .pp{margin-inline-start:auto;font-weight:800}
+.mini{display:flex;flex-direction:column;gap:7px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.mrow{display:grid;grid-template-columns:36px 1fr 52px;gap:8px;align-items:center;font-size:13px}
+.mrow .bar{height:8px}
+.mrow .lbl{display:flex;flex-direction:column;gap:3px;min-width:0}
+.mrow .lbl em{font-style:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mrow .v{text-align:end;font-weight:700}
+.mrow .v small{display:block;font-weight:400;color:var(--muted);font-size:11px}
+.empty{color:var(--muted);padding:20px 0;text-align:center}
+footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:4px}
+@media (max-width:520px){
+  .prow{grid-template-columns:auto 1fr;}
+  .prow .nums{grid-column:2;flex-direction:row;justify-content:space-between;align-items:center;min-width:0;width:100%}
+  .tile .v{font-size:21px}
+  .tabs{align-self:stretch}.tabs button{flex:1}
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">ועדת הבחירות המרכזית · הבחירות לכנסת ה-26</div>
+    <h1>תוצאות הבחירות לכנסת ה-26</h1>
+    <div class="asof"><span>נכון ל־<strong id="asof"></strong></span><span class="badge">צילום מצב · לא מתעדכן לבד</span></div>
+  </header>
+
+  <div class="tiles" id="tiles"></div>
+
+  <div class="progress">
+    <div class="row"><span>התקדמות הספירה</span><strong id="progtxt"></strong></div>
+    <div class="track"><i id="progbar"></i></div>
+  </div>
+
+  <div class="note" id="note"></div>
+
+  <div class="tabs" role="tablist">
+    <button role="tab" id="tab-national" aria-selected="true" data-view="national">ארצי</button>
+    <button role="tab" id="tab-localities" aria-selected="false" data-view="localities">לפי יישוב</button>
+  </div>
+
+  <section id="view-national">
+    <div class="card">
+      <div>
+        <h2>הערכת מנדטים</h2>
+        <p class="sub" id="seatsub"></p>
+      </div>
+      <div class="seats">
+        <div class="stack" id="stack"></div>
+        <div class="seatlist" id="seatlist"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <h2>קולות לפי רשימה</h2>
+        <p class="sub">אחוז מתוך הקולות הכשרים שנספרו עד עכשיו.</p>
+      </div>
+      <div class="legend">
+        <span><i class="sw"></i>מעל אחוז החסימה</span>
+        <span><i class="sw b"></i>מתחת לאחוז החסימה</span>
+        <span><i class="sw t"></i>אחוז החסימה 3.25%</span>
+      </div>
+      <div class="rows" id="rows"></div>
+      <details class="more" id="zerowrap">
+        <summary id="zerosum"></summary>
+        <div class="zero" id="zero"></div>
+      </details>
+    </div>
+  </section>
+
+  <section id="view-localities" hidden>
+    <div>
+      <h2>תוצאות לפי יישוב</h2>
+      <p class="sub" id="citysub"></p>
+    </div>
+    <div class="tools">
+      <input id="q" type="search" placeholder="חיפוש יישוב" aria-label="חיפוש יישוב">
+      <select id="sort" aria-label="מיון">
+        <option value="name">לפי שם</option>
+        <option value="votes">לפי מספר קולות</option>
+        <option value="turnout">לפי אחוז הצבעה</option>
+      </select>
+    </div>
+    <div class="grid" id="cities"></div>
+  </section>
+
+  <footer>
+    <span>מקור הנתונים: אתר התוצאות של ועדת הבחירות המרכזית לכנסת ה-26.</span>
+    <span>התוצאות חלקיות ועשויות להשתנות עד לפרסום התוצאות הרשמיות. הערכת המנדטים חושבה כאן ואינה של הוועדה.</span>
+  </footer>
+</div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+(function(){
+  document.documentElement.dir='rtl'; document.documentElement.lang='he';
+  const D = JSON.parse(document.getElementById('data').textContent);
+  const N = D.national;
+  const fmt = n => n.toLocaleString('he-IL');
+  const pct2 = x => x.toFixed(2) + '%';
+  const byL = Object.fromEntries(D.lists.map(x => [x.l, x]));
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  document.getElementById('asof').textContent = D.asOf;
+
+  const tiles = [
+    ['קלפיות שנספרו', fmt(N.ballots), ''],
+    ['קולות שנספרו', fmt(N.votes), ''],
+    ['קולות כשרים', fmt(N.valid), ''],
+    ['קולות פסולים', fmt(N.invalid), ''],
+    ['בעלי זכות בחירה', fmt(N.eligible), 'בכל הארץ']
+  ];
+  document.getElementById('tiles').innerHTML = tiles.map(t =>
+    `<div class="tile"><span class="k">${t[0]}</span><span class="v">${t[1]}</span>${t[2] ? `<span class="s">${t[2]}</span>` : ''}</div>`).join('');
+
+  const share = N.votes / N.eligible * 100;
+  document.getElementById('progtxt').textContent =
+    `${share < 1 ? share.toFixed(3) : share.toFixed(1)}% מבעלי זכות הבחירה נספרו`;
+  document.getElementById('progbar').style.width = Math.min(100, share) + '%';
+
+  document.getElementById('note').textContent =
+    `שלב מוקדם מאוד בספירה: עד עכשיו נספרו ${fmt(N.ballots)} קלפיות ב־${D.cities.length} יישובים קטנים. התמונה כאן לא מייצגת את התוצאה הארצית ועלולה להשתנות מאוד.`;
+
+  // threshold + seats (Bader-Ofer / D'Hondt among lists that pass, no surplus agreements)
+  const THR = 3.25, SEATS = 120;
+  const thrVotes = N.valid * THR / 100;
+  const passing = D.lists.filter(x => x.votes >= thrVotes && x.votes > 0);
+  const seats = Object.fromEntries(passing.map(x => [x.l, 0]));
+  if (passing.length) for (let i = 0; i < SEATS; i++) {
+    let best = null, bq = -1;
+    for (const x of passing) { const q = x.votes / (seats[x.l] + 1); if (q > bq) { bq = q; best = x; } }
+    seats[best.l]++;
+  }
+  document.getElementById('seatsub').textContent =
+    `חישוב שלנו לפי שיטת בדר־עופר, בין הרשימות שעברו את אחוז החסימה (3.25%), בלי הסכמי עודפים. מבוסס על ${fmt(N.ballots)} קלפיות בלבד, אז זו אינדיקציה ולא תחזית.`;
+  const ordered = passing.slice().sort((a, b) => seats[b.l] - seats[a.l] || b.votes - a.votes);
+  const ops = [100, 80, 64, 50, 40, 32, 26, 21, 17, 14];
+  const segBg = i => `color-mix(in srgb, var(--accent) ${ops[i % ops.length]}%, var(--surface))`;
+  document.getElementById('stack').innerHTML = ordered.map((x, i) =>
+    `<div style="flex:${seats[x.l]};background:${segBg(i)};color:${ops[i % ops.length] >= 60 ? 'var(--surface)' : 'var(--fg)'}" title="${esc(x.short)}: ${seats[x.l]}">${seats[x.l] >= 6 ? seats[x.l] : ''}</div>`).join('')
+    + `<u style="inset-inline-start:${61 / SEATS * 100}%" title="רוב: 61"></u>`;
+  document.getElementById('seatlist').innerHTML = ordered.map((x, i) =>
+    `<span><i style="background:${segBg(i)}"></i>${esc(x.short)} <strong>${seats[x.l]}</strong></span>`).join('')
+    + `<span style="color:var(--muted)">הקו האנכי = 61 מנדטים (רוב)</span>`;
+
+  // national rows
+  const withVotes = D.lists.filter(x => x.votes > 0).sort((a, b) => b.votes - a.votes);
+  const zero = D.lists.filter(x => x.votes === 0);
+  const maxP = Math.max(...withVotes.map(x => x.pct), THR) * 1.04;
+  document.getElementById('rows').innerHTML = withVotes.map(x => {
+    const pass = x.l in seats;
+    return `<div class="prow">
+      <span class="slip">${esc(x.l)}</span>
+      <div class="pname">
+        <div class="t"><b>${esc(x.short)}</b>${pass ? `<span class="seatpill">${seats[x.l]} מנדטים</span>` : `<span class="seatpill out">מתחת לחסימה</span>`}</div>
+        <small title="${esc(x.full)}">${esc(x.full)}</small>
+        <div class="bar${pass ? '' : ' below'}"><i style="width:${x.pct / maxP * 100}%"></i><u style="inset-inline-start:${THR / maxP * 100}%"></u></div>
+      </div>
+      <div class="nums"><span class="p">${pct2(x.pct)}</span><span class="c">${fmt(x.votes)} קולות</span></div>
+    </div>`;
+  }).join('');
+  if (zero.length) {
+    document.getElementById('zerosum').textContent = `עוד ${zero.length} רשימות שעדיין לא קיבלו קולות`;
+    document.getElementById('zero').innerHTML = zero.map(x =>
+      `<span><b class="slip sm">${esc(x.l)}</b>${esc(x.full)}</span>`).join('');
+  } else document.getElementById('zerowrap').hidden = true;
+
+  // localities
+  document.getElementById('citysub').textContent =
+    `${D.cities.length} יישובים שבהם כבר נספרה לפחות קלפי אחת. לחיצה על יישוב פותחת את כל הרשימות.`;
+  const cities = D.cities.map(c => ({...c, turnout: c.eligible ? c.votes / c.eligible * 100 : 0,
+    sorted: Object.entries(c.parties).sort((a, b) => b[1] - a[1])}));
+  const nameOf = l => byL[l] ? byL[l].short : l;
+  function cityCard(c){
+    const [ll, lv] = c.sorted[0] || ['', 0];
+    const top = c.sorted.length ? c.sorted[0][1] : 1;
+    return `<details class="city">
+      <summary>
+        <div class="chead"><b>${esc(c.name)}</b><span><span class="o">פירוט</span><span class="c">סגירה</span></span></div>
+        <div class="cmeta">${fmt(c.ballots)} ${c.ballots === 1 ? 'קלפי' : 'קלפיות'} · ${fmt(c.votes)} קולות · הצבעה ${c.turnout.toFixed(1)}%</div>
+        ${ll ? `<div class="lead"><span class="slip sm">${esc(ll)}</span><span>${esc(nameOf(ll))}</span><span class="pp">${pct2(lv / c.valid * 100)}</span></div>` : ''}
+      </summary>
+      <div class="mini">
+        ${c.sorted.map(([l, v]) => `<div class="mrow">
+          <span class="slip sm">${esc(l)}</span>
+          <div class="lbl"><em>${esc(nameOf(l))}</em><div class="bar"><i style="width:${v / top * 100}%"></i></div></div>
+          <span class="v">${pct2(v / c.valid * 100)}<small>${fmt(v)}</small></span>
+        </div>`).join('')}
+        <div class="cmeta">בעלי זכות בחירה ביישוב: ${fmt(c.eligible)} · כשרים ${fmt(c.valid)} · פסולים ${fmt(c.invalid)}</div>
+      </div>
+    </details>`;
+  }
+  const q = document.getElementById('q'), sortSel = document.getElementById('sort');
+  function renderCities(){
+    const term = q.value.trim();
+    let list = cities.filter(c => !term || c.name.includes(term));
+    const s = sortSel.value;
+    list.sort(s === 'votes' ? (a, b) => b.votes - a.votes : s === 'turnout' ? (a, b) => b.turnout - a.turnout : (a, b) => a.name.localeCompare(b.name, 'he'));
+    document.getElementById('cities').innerHTML = list.length ? list.map(cityCard).join('') : `<div class="empty">לא נמצא יישוב בשם הזה ברשימת היישובים שנספרו.</div>`;
+  }
+  q.addEventListener('input', renderCities);
+  sortSel.addEventListener('change', renderCities);
+  renderCities();
+
+  // tabs with hash
+  const views = ['national', 'localities'];
+  function show(v){
+    if (!views.includes(v)) v = 'national';
+    views.forEach(n => {
+      document.getElementById('view-' + n).hidden = n !== v;
+      document.getElementById('tab-' + n).setAttribute('aria-selected', String(n === v));
+    });
+  }
+  document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
+    const v = b.dataset.view;
+    if (location.hash !== '#' + v) location.hash = v; else show(v);
+  }));
+  window.addEventListener('hashchange', () => show(location.hash.slice(1)));
+  show(location.hash.slice(1));
+})();
+</script>
