@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="תוצאות הבחירות לכנסת ה־26 מתוך אתר ועדת הבחירות המרכזית, מתעדכן אוטומטית. אתר לא רשמי.">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-L5A1FZoaOFCMX5K0I3j1Z02AmqP7Kwkp2DQ1gUtDZj0='; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-CoCQRolA27KyB6iTsTpPBJaPjiaIsRkzcROZETYr4YM='; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="theme-color" content="#06215f">
 <title>הבחירות לכנסת ה־26</title>
@@ -38,6 +38,7 @@
   --slip:#f4f1e8;--slip-fg:#111111;--slip-line:#f4f1e8;
   --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);color-scheme:dark}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;direction:rtl;background:var(--bg);color:var(--fg);font-family:"Heebo",system-ui,"Segoe UI",Arial,sans-serif;font-size:15px;line-height:1.5;font-variant-numeric:tabular-nums}
 .in{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
@@ -303,9 +304,10 @@ footer strong{color:var(--fg);font-weight:700}
   const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const $ = id => document.getElementById(id);
   const THR = 3.25, SEATS = 120, PAGE = 60;
-  const COLORS = { 'מחל':'#1f5fd6','דרך':'#0fa596','ט':'#f08a24','אמת':'#e23a51','רק':'#4b4f7a','ב':'#e8b404',
-    'ל':'#2f9e5d','שס':'#173f8f','די':'#7d8a2e','ך':'#b8467e','ג':'#3a3a3a','עם':'#16825d','ודם':'#9b2335','ני':'#8a6bd1' };
-  const EXTRA = ['#6b7a99','#a26b3f','#4f8fb3','#9a5fa8','#5f8a7a'];
+  // distinct on the navy hero and on white; illustrative only
+  const COLORS = { 'מחל':'#3b7bff','דרך':'#14b8a6','ט':'#f28c28','אמת':'#ef4458','רק':'#a78bfa','ב':'#facc15',
+    'ל':'#34c47c','שס':'#7dd3fc','די':'#a3b13a','ך':'#e879b9','ג':'#94a3b8','עם':'#22a06b','ודם':'#c2414b','ני':'#c084fc' };
+  const EXTRA = ['#8b98b8','#c08457','#60a5c8','#b07cc6','#7fb09e'];
   let D = null, cities = [], byL = {}, colorOf = {}, shown = PAGE, status = { ok: true };
 
   // data.json comes from another site: coerce every field to a plain number or string before use
