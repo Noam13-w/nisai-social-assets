@@ -21,6 +21,9 @@ concurrency:
 
 jobs:
   update:
+    # Paused: the committee site answers GitHub's servers (outside Israel) with a 404 page,
+    # so the fetch runs from a server in Israel instead. This push also cancels the running loop.
+    if: false
     runs-on: ubuntu-latest
     timeout-minutes: 355
     steps:
