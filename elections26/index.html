@@ -3,176 +3,248 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="תוצאות הבחירות לכנסת ה-26 מתוך אתר ועדת הבחירות המרכזית, מתעדכן אוטומטית.">
-<title>תוצאות הבחירות לכנסת ה-26</title>
+<meta name="description" content="תוצאות הבחירות לכנסת ה־26 מתוך אתר ועדת הבחירות המרכזית, מתעדכן אוטומטית. אתר לא רשמי.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-L5A1FZoaOFCMX5K0I3j1Z02AmqP7Kwkp2DQ1gUtDZj0='; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#06215f">
+<title>הבחירות לכנסת ה־26</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@700;900&family=Heebo:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@900&family=Heebo:wght@400;500;700&family=Rubik:wght@500;700;800;900&display=swap">
 <style>
 :root{
-  --bg:#f5f6fa;--surface:#ffffff;--surface-2:#eef0f7;--fg:#141829;--muted:#5a6181;--line:#dfe2ee;
-  --accent:#1e47b5;--accent-soft:#e2e9fd;--below:#b9bfd3;--thr:#c2410c;
-  --warn-bg:#fff5dc;--warn-fg:#6f4a00;--warn-line:#f1d48a;
-  --slip:#ffffff;--slip-fg:#141829;--slip-line:#c9cede;
+  --bg:#eef1f8;--surface:#ffffff;--surface-2:#f2f4fa;--fg:#0c1430;--muted:#59627f;--line:#dde2ef;
+  --brand:#0038b8;--brand-ink:#0038b8;--brand-soft:#e3eafc;
+  --hero-a:#05194d;--hero-b:#0b37a3;--hero-fg:#ffffff;--hero-muted:#b9c7f0;
+  --thr:#d4202f;--below:#c3c8d8;--live:#ff3b47;
+  --warn-bg:#fff6dd;--warn-fg:#6a4700;--warn-line:#f0d58c;
+  --slip:#fffdf8;--slip-fg:#111111;--slip-line:#d7d2c4;
+  --shadow:0 1px 2px rgba(12,20,48,.06),0 8px 24px -12px rgba(12,20,48,.18);
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0d1020;--surface:#151a2e;--surface-2:#1b2139;--fg:#e7e9f4;--muted:#9aa1bf;--line:#272d48;
-  --accent:#7d9fff;--accent-soft:#1c2650;--below:#465072;--thr:#fb923c;
-  --warn-bg:#2a2311;--warn-fg:#f1c868;--warn-line:#4d3f18;
-  --slip:#eceef6;--slip-fg:#141829;--slip-line:#eceef6;color-scheme:dark}}
+  --bg:#060b1a;--surface:#0e1530;--surface-2:#141c3b;--fg:#e8ecf8;--muted:#9aa4c4;--line:#222b4d;
+  --brand:#4d7dff;--brand-ink:#8fb0ff;--brand-soft:#16224d;
+  --hero-a:#020a24;--hero-b:#082a80;--hero-fg:#ffffff;--hero-muted:#a9b8e6;
+  --thr:#ff5a66;--below:#3a4466;--live:#ff4d58;
+  --warn-bg:#2a220e;--warn-fg:#f3cd72;--warn-line:#4a3c16;
+  --slip:#f4f1e8;--slip-fg:#111111;--slip-line:#f4f1e8;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0d1020;--surface:#151a2e;--surface-2:#1b2139;--fg:#e7e9f4;--muted:#9aa1bf;--line:#272d48;
-  --accent:#7d9fff;--accent-soft:#1c2650;--below:#465072;--thr:#fb923c;
-  --warn-bg:#2a2311;--warn-fg:#f1c868;--warn-line:#4d3f18;
-  --slip:#eceef6;--slip-fg:#141829;--slip-line:#eceef6;color-scheme:dark}
+  --bg:#060b1a;--surface:#0e1530;--surface-2:#141c3b;--fg:#e8ecf8;--muted:#9aa4c4;--line:#222b4d;
+  --brand:#4d7dff;--brand-ink:#8fb0ff;--brand-soft:#16224d;
+  --hero-a:#020a24;--hero-b:#082a80;--hero-fg:#ffffff;--hero-muted:#a9b8e6;
+  --thr:#ff5a66;--below:#3a4466;--live:#ff4d58;
+  --warn-bg:#2a220e;--warn-fg:#f3cd72;--warn-line:#4a3c16;
+  --slip:#f4f1e8;--slip-fg:#111111;--slip-line:#f4f1e8;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);color-scheme:dark}
 *{box-sizing:border-box}
-body{direction:rtl;background:var(--bg);color:var(--fg);font-family:"Heebo",system-ui,"Segoe UI",Arial,sans-serif;font-size:15px;line-height:1.5;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px;
-  font-variant-numeric:tabular-nums}
-.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
-header{display:flex;flex-direction:column;gap:8px}
-.eyebrow{font-size:12px;letter-spacing:.06em;color:var(--muted);font-weight:500}
-h1{font-family:"Frank Ruhl Libre","Times New Roman",serif;font-weight:900;font-size:clamp(28px,6vw,42px);line-height:1.1;margin:0;text-wrap:balance}
-.asof{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;color:var(--muted);font-size:14px}
-.badge{display:inline-flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:12px;font-weight:500;color:var(--fg)}
-.badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--muted)}
-.badge.live::before{background:#16a34a;box-shadow:0 0 0 3px color-mix(in srgb,#16a34a 25%,transparent)}
-.badge.stale::before{background:#d97706}
-.morebtn{font:inherit;font-weight:700;color:var(--accent);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 16px;cursor:pointer;align-self:center}
-.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
-.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;direction:rtl;background:var(--bg);color:var(--fg);font-family:"Heebo",system-ui,"Segoe UI",Arial,sans-serif;font-size:15px;line-height:1.5;font-variant-numeric:tabular-nums}
+.in{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.num{font-family:"Rubik","Heebo",system-ui,sans-serif}
+
+/* hero */
+.hero{color:var(--hero-fg);background:
+  radial-gradient(120% 90% at 85% 0%,rgba(255,255,255,.14),transparent 55%),
+  linear-gradient(165deg,var(--hero-a) 0%,var(--hero-b) 100%);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:30px;background:
+  linear-gradient(var(--bg),var(--bg)) top/100% 0 no-repeat}
+.hero .in{padding-block:max(18px,env(safe-area-inset-top,0px)) 74px;position:relative;z-index:1}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brandmark{display:flex;align-items:center;gap:10px;font-family:"Rubik",sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;color:var(--hero-muted)}
+.brandmark i{display:inline-flex;flex-direction:column;justify-content:space-between;width:22px;height:16px;background:#fff;border-radius:2px;padding:2px 0}
+.brandmark i::before,.brandmark i::after{content:"";height:2.5px;background:#0038b8}
+.live{display:inline-flex;align-items:center;gap:8px;font-family:"Rubik",sans-serif;font-weight:700;font-size:13px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 12px 5px 14px;backdrop-filter:blur(6px)}
+.live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--live);box-shadow:0 0 0 0 var(--live);animation:pulse 1.8s infinite}
+.live.stale::before{background:#f5b301;animation:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,59,71,.7)}70%{box-shadow:0 0 0 9px rgba(255,59,71,0)}100%{box-shadow:0 0 0 0 rgba(255,59,71,0)}}
+@media (prefers-reduced-motion:reduce){.live::before{animation:none}}
+.herogrid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:22px;align-items:end}
+.eyebrow{margin:0 0 8px;font-weight:500;font-size:14px;color:var(--hero-muted)}
+h1{margin:0;font-family:"Rubik",sans-serif;font-weight:900;font-size:clamp(44px,13vw,84px);line-height:.95;letter-spacing:-.02em;text-wrap:balance}
+h1 .k{display:block;font-weight:800;font-size:.46em;letter-spacing:0;margin-bottom:.12em;color:var(--hero-muted)}
+h1 .n{display:inline-block;background:#fff;color:#0038b8;border-radius:.12em;padding:0 .14em;margin-inline-start:.06em;line-height:1.02}
+.asof{margin:16px 0 0;font-size:14.5px;color:var(--hero-muted);display:flex;flex-wrap:wrap;gap:4px 10px}
+.asof b{color:#fff;font-family:"Rubik",sans-serif;font-weight:700}
+.count{margin-top:18px;display:flex;flex-direction:column;gap:8px;max-width:440px}
+.count .row{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;color:var(--hero-muted)}
+.count .row b{color:#fff;font-family:"Rubik",sans-serif;font-weight:700}
+.count .track{height:6px;border-radius:99px;background:rgba(255,255,255,.16);overflow:hidden;position:relative}
+.count .track i{position:absolute;inset-block:0;inset-inline-start:0;background:#fff;border-radius:99px;min-width:4px}
+.hemi{margin:0;position:relative;max-width:520px;width:100%;justify-self:center}
+.hemi svg{display:block;width:100%;height:auto}
+.hemi .center{position:absolute;inset-inline:0;bottom:0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0}
+.hemi .center b{font-family:"Rubik",sans-serif;font-weight:900;font-size:clamp(30px,8vw,46px);line-height:1}
+.hemi .center span{font-size:13px;color:var(--hero-muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:5px 10px 5px 8px;font-size:13.5px}
+.chip i{width:10px;height:10px;border-radius:50%;flex:none}
+.chip b{font-family:"Rubik",sans-serif;font-weight:800;font-size:15px}
+.seatnote{margin:12px 0 0;font-size:12.5px;color:var(--hero-muted);max-width:70ch}
+
+/* body */
+main.in{display:flex;flex-direction:column;gap:22px;margin-top:-52px;position:relative;z-index:2;padding-bottom:40px}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+.tile{background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:2px;min-width:0}
 .tile .k{font-size:12.5px;color:var(--muted)}
-.tile .v{font-size:24px;font-weight:800;letter-spacing:-.01em}
-.tile .s{font-size:12px;color:var(--muted)}
-.progress{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px}
-.progress .row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px}
-.track{height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden;position:relative}
-.track>i{position:absolute;inset-block:0;inset-inline-start:0;background:var(--accent);border-radius:99px;min-width:3px}
-.note{background:var(--warn-bg);color:var(--warn-fg);border:1px solid var(--warn-line);border-radius:12px;padding:12px 14px;font-size:14px}
-.tabs{display:flex;gap:4px;background:var(--surface-2);border-radius:12px;padding:4px;align-self:flex-start;max-width:100%}
-.tabs button{font:inherit;font-weight:700;border:0;background:transparent;color:var(--muted);padding:8px 16px;border-radius:9px;cursor:pointer}
-.tabs button[aria-selected="true"]{background:var(--surface);color:var(--fg);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.tile .v{font-family:"Rubik",sans-serif;font-size:24px;font-weight:800;letter-spacing:-.01em}
+.tile:last-child{grid-column:1/-1}
+.note{background:var(--warn-bg);color:var(--warn-fg);border:1px solid var(--warn-line);border-radius:14px;padding:12px 16px;font-size:14px;display:flex;gap:10px;align-items:flex-start}
+.note::before{content:"!";flex:none;width:20px;height:20px;border-radius:50%;background:var(--warn-fg);color:var(--warn-bg);font-weight:800;font-size:13px;display:grid;place-items:center;margin-top:1px}
+.tabs{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:4px;align-self:stretch;box-shadow:var(--shadow)}
+.tabs button{flex:1;font:inherit;font-family:"Rubik",sans-serif;font-weight:700;font-size:15px;border:0;background:transparent;color:var(--muted);padding:10px 16px;border-radius:10px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--brand);color:#fff}
 section{display:flex;flex-direction:column;gap:14px}
-h2{font-size:19px;margin:0;font-weight:800}
-.sub{color:var(--muted);font-size:13.5px;margin:0;max-width:68ch}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:12px;min-width:0}
-.slip{display:inline-flex;align-items:center;justify-content:center;min-width:46px;height:34px;padding:0 6px;background:var(--slip);color:var(--slip-fg);
-  border:1px solid var(--slip-line);border-radius:4px;font-weight:800;font-size:17px;box-shadow:0 1px 0 rgba(0,0,0,.06);flex:none}
-.slip.sm{min-width:36px;height:26px;font-size:13.5px}
+.sechead{display:flex;flex-direction:column;gap:4px}
+h2{margin:0;font-family:"Rubik",sans-serif;font-size:22px;font-weight:800;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:13.5px;margin:0;max-width:70ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:6px 16px;box-shadow:var(--shadow);min-width:0}
 .legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--muted)}
 .legend span{display:inline-flex;align-items:center;gap:6px}
-.sw{width:14px;height:8px;border-radius:2px;background:var(--accent);display:inline-block}
-.sw.b{background:var(--below)}
-.sw.t{width:0;height:12px;border-inline-start:2px dashed var(--thr);border-radius:0;background:none}
-.rows{display:flex;flex-direction:column}
-.prow{display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.legend .t{width:0;height:12px;border-inline-start:2px dashed var(--thr)}
+.legend .b{width:14px;height:8px;border-radius:2px;background:var(--below)}
+
+.slip{display:inline-flex;align-items:center;justify-content:center;min-width:54px;height:40px;padding:0 6px;background:var(--slip);color:var(--slip-fg);
+  border:1px solid var(--slip-line);border-radius:3px;font-family:"Frank Ruhl Libre","Times New Roman",serif;font-weight:900;font-size:21px;line-height:1;flex:none;
+  box-shadow:0 1px 0 rgba(0,0,0,.05),0 2px 6px -2px rgba(0,0,0,.18);position:relative}
+.slip.sm{min-width:38px;height:28px;font-size:15px}
+.prow{display:grid;grid-template-columns:auto 1fr auto;gap:6px 14px;align-items:center;padding:14px 0;border-top:1px solid var(--line)}
 .prow:first-child{border-top:0}
-.pname{min-width:0;display:flex;flex-direction:column;gap:5px}
-.pname .t{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
-.pname b{font-weight:700}
+.pname{min-width:0;display:flex;flex-direction:column;gap:6px}
+.pname .t{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pname b{font-family:"Rubik",sans-serif;font-weight:700;font-size:16.5px}
 .pname small{color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-.bar{height:10px;background:var(--surface-2);border-radius:3px;position:relative}
-.bar>i{position:absolute;inset-block:0;inset-inline-start:0;background:var(--accent);border-radius:3px}
-.bar.below>i{background:var(--below)}
-.bar>u{position:absolute;inset-block:-4px;border-inline-start:2px dashed var(--thr)}
-.nums{text-align:end;display:flex;flex-direction:column;align-items:flex-end;gap:2px;min-width:74px}
-.nums .p{font-weight:800;font-size:16px}
+.bar{height:12px;background:var(--surface-2);border-radius:4px;position:relative}
+.bar>i{position:absolute;inset-block:0;inset-inline-start:0;border-radius:4px;background:var(--brand)}
+.bar.below>i{background:var(--below)!important}
+.bar>u{position:absolute;inset-block:-5px;border-inline-start:2px dashed var(--thr);text-decoration:none}
+.nums{text-align:end;display:flex;flex-direction:column;align-items:flex-end;gap:0;min-width:80px}
+.nums .p{font-family:"Rubik",sans-serif;font-weight:800;font-size:21px;line-height:1.15}
 .nums .c{font-size:12px;color:var(--muted)}
-.seatpill{font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:1px 8px;white-space:nowrap}
-.seatpill.out{color:var(--muted);background:var(--surface-2);font-weight:500}
-details.more>summary{cursor:pointer;color:var(--accent);font-weight:700;font-size:14px;list-style:none}
+.seatpill{font-family:"Rubik",sans-serif;font-size:12.5px;font-weight:700;color:#fff;border-radius:999px;padding:1px 9px;white-space:nowrap}
+.seatpill.out{color:var(--muted);background:var(--surface-2);font-weight:500;font-family:"Heebo",sans-serif}
+details.more{border-top:1px solid var(--line);padding:12px 0}
+details.more>summary{cursor:pointer;color:var(--brand-ink);font-weight:700;font-size:14px;list-style:none}
 details.more>summary::-webkit-details-marker{display:none}
 details.more>summary::before{content:"+ "}
 details.more[open]>summary::before{content:"− "}
 .zero{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .zero span{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);background:var(--surface-2);border-radius:8px;padding:4px 8px 4px 4px}
-.seats{display:flex;flex-direction:column;gap:10px}
-.stack{display:flex;height:36px;border-radius:6px;overflow:hidden;gap:2px;position:relative;background:var(--surface-2)}
-.stack>div{background:var(--accent);display:flex;align-items:center;justify-content:center;color:var(--surface);font-weight:800;font-size:13px;min-width:0;overflow:hidden}
-.stack>u{position:absolute;inset-block:-3px;border-inline-start:2px solid var(--fg);text-decoration:none}
-.seatlist{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13.5px}
-.seatlist span{display:inline-flex;align-items:center;gap:6px}
-.seatlist i{width:10px;height:10px;border-radius:2px;background:var(--accent);display:inline-block}
+
 .tools{display:flex;flex-wrap:wrap;gap:10px}
-.tools input,.tools select{font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:9px 12px;min-width:0}
+.tools input,.tools select{font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px;min-width:0;box-shadow:var(--shadow)}
 .tools input{flex:1 1 220px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
-details.city{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;min-width:0}
-details.city>summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+details.city{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;min-width:0;box-shadow:var(--shadow)}
+details.city>summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:10px}
 details.city>summary::-webkit-details-marker{display:none}
 .chead{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.chead b{font-size:17px;font-weight:800}
-.chead span{font-size:12px;color:var(--accent);font-weight:700;white-space:nowrap}
-details.city[open] .chead span .o{display:none}
-details.city:not([open]) .chead span .c{display:none}
+.chead b{font-family:"Rubik",sans-serif;font-size:18px;font-weight:800}
+.chead span{font-size:12.5px;color:var(--brand-ink);font-weight:700;white-space:nowrap}
+details.city[open] .chead .o{display:none}
+details.city:not([open]) .chead .c{display:none}
 .cmeta{font-size:12.5px;color:var(--muted)}
-.lead{display:flex;align-items:center;gap:8px;font-size:14px}
-.lead .pp{margin-inline-start:auto;font-weight:800}
-.mini{display:flex;flex-direction:column;gap:7px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
-.mrow{display:grid;grid-template-columns:36px 1fr 52px;gap:8px;align-items:center;font-size:13px}
+.spark{display:flex;height:8px;border-radius:99px;overflow:hidden;gap:1px;background:var(--surface-2)}
+.spark i{display:block;min-width:2px}
+.lead{display:flex;align-items:center;gap:10px;font-size:14.5px}
+.lead .pp{margin-inline-start:auto;font-family:"Rubik",sans-serif;font-weight:800;font-size:17px}
+.mini{display:flex;flex-direction:column;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.mrow{display:grid;grid-template-columns:38px 1fr 56px;gap:10px;align-items:center;font-size:13px}
 .mrow .bar{height:8px}
 .mrow .lbl{display:flex;flex-direction:column;gap:3px;min-width:0}
 .mrow .lbl em{font-style:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mrow .v{text-align:end;font-weight:700}
-.mrow .v small{display:block;font-weight:400;color:var(--muted);font-size:11px}
-.empty{color:var(--muted);padding:20px 0;text-align:center}
-footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:4px}
+.mrow .v{text-align:end;font-family:"Rubik",sans-serif;font-weight:700}
+.mrow .v small{display:block;font-family:"Heebo",sans-serif;font-weight:400;color:var(--muted);font-size:11px}
+.morebtn{font:inherit;font-family:"Rubik",sans-serif;font-weight:700;color:var(--brand-ink);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:11px 18px;cursor:pointer;align-self:center;box-shadow:var(--shadow)}
+.empty{color:var(--muted);padding:24px 0;text-align:center}
+.tstats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.tstats div{background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.tstats .k{font-size:12.5px;color:var(--muted)}
+.tstats .v{font-family:"Rubik",sans-serif;font-size:24px;font-weight:800}
+.tstats .v.big{color:var(--brand-ink);font-size:30px}
+.tcard{padding:0;overflow:hidden}
+.tablewrap{overflow-x:auto}
+table.tt{width:100%;border-collapse:collapse;font-size:14px}
+.tt th{position:sticky;top:0;background:var(--surface-2);text-align:start;font-weight:500;color:var(--muted);font-size:12.5px;padding:0;white-space:nowrap}
+.tt th button{all:unset;cursor:pointer;display:block;padding:10px 14px}
+.tt th[aria-sort="descending"] button::after{content:" ▼";font-size:10px}
+.tt th[aria-sort="ascending"] button::after{content:" ▲";font-size:10px}
+.tt th[aria-sort] button{color:var(--fg);font-weight:700}
+.tt td{padding:10px 14px;border-top:1px solid var(--line);white-space:nowrap}
+.tt td:first-child{font-weight:700;white-space:normal;min-width:110px}
+.tt td.n{font-family:"Rubik",sans-serif;text-align:end}
+.tt th.n button{text-align:end}
+.tt .to{display:flex;align-items:center;gap:10px;justify-content:flex-end;font-family:"Rubik",sans-serif;font-weight:800}
+.tt .to .bar{width:min(140px,22vw);height:8px}
+.tt .to .bar>i{background:var(--brand)}
+@media (max-width:520px){.tstats{grid-template-columns:1fr 1fr}.tstats div:first-child{grid-column:1/-1}.tt .to .bar{display:none}.tt td,.tt th button{padding-inline:10px}}
+footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:4px}
+footer strong{color:var(--fg);font-weight:700}
+
+@media (min-width:720px){
+  .tiles{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .tile:last-child{grid-column:auto}
+}
+@media (min-width:860px){
+  .herogrid{grid-template-columns:1.05fr 1fr;gap:32px}
+  .hemi{justify-self:end}
+}
 @media (max-width:520px){
-  .prow{grid-template-columns:auto 1fr;}
-  .prow .nums{grid-column:2;flex-direction:row;justify-content:space-between;align-items:center;min-width:0;width:100%}
+  .prow{grid-template-columns:auto 1fr}
+  .prow .nums{grid-column:2;flex-direction:row;justify-content:space-between;align-items:baseline;min-width:0;width:100%}
   .tile .v{font-size:21px}
-  .tabs{align-self:stretch}.tabs button{flex:1}
+  .slip{min-width:48px;height:36px;font-size:19px}
 }
 </style>
 </head>
 <body>
-
-
-<div class="wrap">
-  <header>
-    <div class="eyebrow">ועדת הבחירות המרכזית · הבחירות לכנסת ה-26</div>
-    <h1>תוצאות הבחירות לכנסת ה-26</h1>
-    <div class="asof"><span>נכון ל־<strong id="asof">…</strong></span><span class="badge" id="live">טוען…</span><span id="ago"></span></div>
-  </header>
-
-  <div class="tiles" id="tiles"></div>
-
-  <div class="progress">
-    <div class="row"><span>התקדמות הספירה</span><strong id="progtxt"></strong></div>
-    <div class="track"><i id="progbar"></i></div>
+<header class="hero">
+  <div class="in">
+    <div class="topline">
+      <span class="brandmark"><i aria-hidden="true"></i>ליל הבחירות · 27.10.2026</span>
+      <span class="live" id="live">טוען…</span>
+    </div>
+    <div class="herogrid">
+      <div>
+        <p class="eyebrow">תוצאות האמת מהקלפיות</p>
+        <h1><span class="k">הבחירות</span>לכנסת ה־<span class="n num">26</span></h1>
+        <p class="asof"><span>נכון ל־<b id="asof">…</b></span><span id="ago"></span></p>
+        <div class="count">
+          <div class="row"><span>התקדמות הספירה</span><b id="progtxt"></b></div>
+          <div class="track"><i id="progbar"></i></div>
+        </div>
+      </div>
+      <figure class="hemi" aria-label="הערכת חלוקת 120 המנדטים">
+        <svg id="hemi" viewBox="0 0 400 214" role="img"></svg>
+        <figcaption class="center"><b id="hemiNum">120</b><span id="hemiLbl">מנדטים · 61 לרוב</span></figcaption>
+      </figure>
+    </div>
+    <div class="chips" id="seatlist"></div>
+    <p class="seatnote" id="seatsub"></p>
   </div>
+</header>
 
+<main class="in">
+  <div class="tiles" id="tiles"></div>
   <div class="note" id="err" hidden></div>
   <div class="note" id="note" hidden></div>
-
   <div class="tabs" role="tablist">
     <button role="tab" id="tab-national" aria-selected="true" data-view="national">ארצי</button>
     <button role="tab" id="tab-localities" aria-selected="false" data-view="localities">לפי יישוב</button>
+    <button role="tab" id="tab-turnout" aria-selected="false" data-view="turnout">אחוז הצבעה</button>
   </div>
 
   <section id="view-national">
-    <div class="card">
-      <div>
-        <h2>הערכת מנדטים</h2>
-        <p class="sub" id="seatsub"></p>
-      </div>
-      <div class="seats">
-        <div class="stack" id="stack"></div>
-        <div class="seatlist" id="seatlist"></div>
+    <div class="sechead">
+      <h2>קולות לפי רשימה</h2>
+      <p class="sub">אחוז מתוך הקולות הכשרים שנספרו עד עכשיו.</p>
+      <div class="legend">
+        <span><i class="t"></i>אחוז החסימה 3.25%</span>
+        <span><i class="b"></i>מתחת לאחוז החסימה</span>
       </div>
     </div>
-
     <div class="card">
-      <div>
-        <h2>קולות לפי רשימה</h2>
-        <p class="sub">אחוז מתוך הקולות הכשרים שנספרו עד עכשיו.</p>
-      </div>
-      <div class="legend">
-        <span><i class="sw"></i>מעל אחוז החסימה</span>
-        <span><i class="sw b"></i>מתחת לאחוז החסימה</span>
-        <span><i class="sw t"></i>אחוז החסימה 3.25%</span>
-      </div>
-      <div class="rows" id="rows"></div>
+      <div id="rows"></div>
       <details class="more" id="zerowrap">
         <summary id="zerosum"></summary>
         <div class="zero" id="zero"></div>
@@ -181,7 +253,7 @@ footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padd
   </section>
 
   <section id="view-localities" hidden>
-    <div>
+    <div class="sechead">
       <h2>תוצאות לפי יישוב</h2>
       <p class="sub" id="citysub"></p>
     </div>
@@ -197,11 +269,32 @@ footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padd
     <button class="morebtn" id="more" hidden></button>
   </section>
 
+  <section id="view-turnout" hidden>
+    <div class="sechead">
+      <h2>אחוז הצבעה</h2>
+      <p class="sub" id="tsub"></p>
+    </div>
+    <div class="tstats" id="tstats"></div>
+    <div class="tools"><input id="tq" type="search" placeholder="חיפוש יישוב" aria-label="חיפוש יישוב בטבלת אחוז ההצבעה"></div>
+    <div class="card tcard"><div class="tablewrap">
+      <table class="tt">
+        <thead><tr>
+          <th data-k="name"><button type="button">יישוב</button></th>
+          <th class="n" data-k="eligible"><button type="button">בעלי זכות בחירה</button></th>
+          <th class="n" data-k="votes"><button type="button">הצביעו</button></th>
+          <th class="n" data-k="turnout" aria-sort="descending"><button type="button">אחוז הצבעה</button></th>
+        </tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div></div>
+    <button class="morebtn" id="tmore" hidden></button>
+  </section>
+
   <footer>
-    <span>מקור הנתונים: אתר התוצאות של ועדת הבחירות המרכזית לכנסת ה-26. הדף בודק אם יש נתונים חדשים כל דקה.</span>
-    <span>התוצאות חלקיות ועשויות להשתנות עד לפרסום התוצאות הרשמיות. הערכת המנדטים חושבה כאן ואינה של הוועדה.</span>
+    <span><strong>אתר לא רשמי.</strong> מקור הנתונים: אתר התוצאות של ועדת הבחירות המרכזית לכנסת ה־26. הדף בודק אם יש נתונים חדשים כל דקה.</span>
+    <span>התוצאות חלקיות ועשויות להשתנות עד לפרסום התוצאות הרשמיות. הערכת המנדטים חושבה כאן ואינה של הוועדה. הצבעים להמחשה בלבד.</span>
   </footer>
-</div>
+</main>
 
 <script>
 (function(){
@@ -210,20 +303,59 @@ footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padd
   const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const $ = id => document.getElementById(id);
   const THR = 3.25, SEATS = 120, PAGE = 60;
-  let D = null, cities = [], byL = {}, shown = PAGE, status = { ok: true };
+  const COLORS = { 'מחל':'#1f5fd6','דרך':'#0fa596','ט':'#f08a24','אמת':'#e23a51','רק':'#4b4f7a','ב':'#e8b404',
+    'ל':'#2f9e5d','שס':'#173f8f','די':'#7d8a2e','ך':'#b8467e','ג':'#3a3a3a','עם':'#16825d','ודם':'#9b2335','ני':'#8a6bd1' };
+  const EXTRA = ['#6b7a99','#a26b3f','#4f8fb3','#9a5fa8','#5f8a7a'];
+  let D = null, cities = [], byL = {}, colorOf = {}, shown = PAGE, status = { ok: true };
+
+  // data.json comes from another site: coerce every field to a plain number or string before use
+  const N0 = v => { const n = Number(v); return Number.isFinite(n) ? n : 0; };
+  const S = v => (v == null ? '' : String(v));
+  function clean(d){
+    const n = d && d.national || {};
+    return { asOf: S(d.asOf), citiesAsOf: d.citiesAsOf ? S(d.citiesAsOf) : null, updatedAt: S(d.updatedAt),
+      national: { eligible: N0(n.eligible), votes: N0(n.votes), ballots: N0(n.ballots), valid: N0(n.valid), invalid: N0(n.invalid) },
+      lists: (Array.isArray(d.lists) ? d.lists : []).map(x => ({ l: S(x.l), full: S(x.full), short: S(x.short || x.full), pct: N0(x.pct), votes: N0(x.votes) })),
+      cities: (Array.isArray(d.cities) ? d.cities : []).map(c => ({ name: S(c.name), id: N0(c.id), eligible: N0(c.eligible), votes: N0(c.votes),
+        ballots: c.ballots == null ? null : N0(c.ballots), valid: N0(c.valid), invalid: N0(c.invalid),
+        parties: Object.fromEntries(Object.entries(c.parties && typeof c.parties === 'object' ? c.parties : {}).map(([k, v]) => [S(k), N0(v)])) })) };
+  }
+
+  function hemiSeats(total, rows){
+    const r0 = 0.4, radii = [...Array(rows)].map((_, i) => r0 + (1 - r0) * i / (rows - 1));
+    const sum = radii.reduce((a, b) => a + b, 0);
+    const counts = radii.map(r => Math.round(total * r / sum));
+    counts[rows - 1] += total - counts.reduce((a, b) => a + b, 0);
+    const pts = [];
+    radii.forEach((r, i) => { const n = counts[i]; for (let k = 0; k < n; k++) pts.push({ a: Math.PI * (n === 1 ? .5 : k / (n - 1)), r }); });
+    return pts.sort((p, q) => p.a - q.a || q.r - p.r);
+  }
+  const PTS = hemiSeats(SEATS, 7);
+
+  function drawHemi(order, seats){
+    const cx = 200, cy = 206, R = 192, fill = [];
+    order.forEach(x => { for (let i = 0; i < seats[x.l]; i++) fill.push(colorOf[x.l]); });
+    let dots = PTS.map((p, i) => {
+      const x = cx + R * p.r * Math.cos(p.a), y = cy - R * p.r * Math.sin(p.a);
+      return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7.4" fill="${fill[i] || 'rgba(255,255,255,.16)'}"/>`;
+    }).join('');
+    dots += `<line x1="200" y1="${cy - R * .4 + 6}" x2="200" y2="2" stroke="rgba(255,255,255,.55)" stroke-width="1.5" stroke-dasharray="3 4"/>`;
+    $('hemi').innerHTML = dots;
+  }
 
   function render(){
     const N = D.national;
     byL = Object.fromEntries(D.lists.map(x => [x.l, x]));
+    let e = 0;
+    colorOf = Object.fromEntries(D.lists.slice().sort((a, b) => b.votes - a.votes).map(x => [x.l, COLORS[x.l] || EXTRA[e++ % EXTRA.length]]));
     $('asof').textContent = D.asOf;
     $('tiles').innerHTML = [
-      ['קלפיות שנספרו', fmt(N.ballots), ''], ['קולות שנספרו', fmt(N.votes), ''],
-      ['קולות כשרים', fmt(N.valid), ''], ['קולות פסולים', fmt(N.invalid), ''],
-      ['בעלי זכות בחירה', fmt(N.eligible), 'בכל הארץ']
-    ].map(t => `<div class="tile"><span class="k">${t[0]}</span><span class="v">${t[1]}</span>${t[2] ? `<span class="s">${t[2]}</span>` : ''}</div>`).join('');
+      ['קלפיות שנספרו', fmt(N.ballots)], ['קולות שנספרו', fmt(N.votes)],
+      ['קולות כשרים', fmt(N.valid)], ['קולות פסולים', fmt(N.invalid)], ['בעלי זכות בחירה', fmt(N.eligible)]
+    ].map(t => `<div class="tile"><span class="k">${t[0]}</span><span class="v">${t[1]}</span></div>`).join('');
 
     const share = N.eligible ? N.votes / N.eligible * 100 : 0;
-    $('progtxt').textContent = `${share < 1 ? share.toFixed(3) : share.toFixed(1)}% מבעלי זכות הבחירה נספרו`;
+    $('progtxt').textContent = `${share < 1 ? share.toFixed(2) : share.toFixed(1)}% מבעלי זכות הבחירה`;
     $('progbar').style.width = Math.min(100, share) + '%';
     const note = $('note');
     note.hidden = share >= 20;
@@ -239,28 +371,27 @@ footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padd
       for (const x of passing) { const q = x.votes / (seats[x.l] + 1); if (q > bq) { bq = q; best = x; } }
       seats[best.l]++;
     }
-    $('seatsub').textContent = `חישוב שלנו לפי שיטת בדר־עופר, בין הרשימות שעברו את אחוז החסימה (3.25%), בלי הסכמי עודפים. מבוסס על ${fmt(N.ballots)} קלפיות שנספרו, אז זו אינדיקציה ולא תחזית.`;
     const ordered = passing.slice().sort((a, b) => seats[b.l] - seats[a.l] || b.votes - a.votes);
-    const ops = [100, 80, 64, 50, 40, 32, 26, 21, 17, 14];
-    const segBg = i => `color-mix(in srgb, var(--accent) ${ops[i % ops.length]}%, var(--surface))`;
-    $('stack').innerHTML = ordered.map((x, i) =>
-      `<div style="flex:${seats[x.l]};background:${segBg(i)};color:${ops[i % ops.length] >= 60 ? 'var(--surface)' : 'var(--fg)'}" title="${esc(x.short)}: ${seats[x.l]}">${seats[x.l] >= 6 ? seats[x.l] : ''}</div>`).join('')
-      + `<u style="inset-inline-start:${61 / SEATS * 100}%" title="רוב: 61"></u>`;
-    $('seatlist').innerHTML = ordered.map((x, i) =>
-      `<span><i style="background:${segBg(i)}"></i>${esc(x.short)} <strong>${seats[x.l]}</strong></span>`).join('')
-      + `<span style="color:var(--muted)">הקו האנכי = 61 מנדטים (רוב)</span>`;
+    drawHemi(ordered, seats);
+    if (ordered.length) {
+      $('hemiNum').textContent = seats[ordered[0].l];
+      $('hemiLbl').textContent = `${ordered[0].short} · הרשימה הגדולה`;
+    }
+    $('seatlist').innerHTML = ordered.map(x =>
+      `<span class="chip"><i style="background:${colorOf[x.l]}"></i>${esc(x.short)} <b class="num">${seats[x.l]}</b></span>`).join('');
+    $('seatsub').textContent = `הערכת מנדטים שחושבה כאן לפי שיטת בדר־עופר, בין הרשימות שעברו את אחוז החסימה, בלי הסכמי עודפים. מבוססת על ${fmt(N.ballots)} קלפיות שנספרו, אז זו אינדיקציה ולא תחזית. הקו המקווקו מסמן 61.`;
 
     const withVotes = D.lists.filter(x => x.votes > 0).sort((a, b) => b.votes - a.votes);
     const zero = D.lists.filter(x => x.votes === 0);
     const maxP = Math.max(...withVotes.map(x => x.pct), THR) * 1.04;
     $('rows').innerHTML = withVotes.map(x => {
-      const pass = x.l in seats;
+      const pass = x.l in seats, c = colorOf[x.l];
       return `<div class="prow">
         <span class="slip">${esc(x.l)}</span>
         <div class="pname">
-          <div class="t"><b>${esc(x.short)}</b>${pass ? `<span class="seatpill">${seats[x.l]} מנדטים</span>` : `<span class="seatpill out">מתחת לחסימה</span>`}</div>
+          <div class="t"><b>${esc(x.short)}</b>${pass ? `<span class="seatpill" style="background:${c}">${seats[x.l]} מנדטים</span>` : `<span class="seatpill out">מתחת לחסימה</span>`}</div>
           <small title="${esc(x.full)}">${esc(x.full)}</small>
-          <div class="bar${pass ? '' : ' below'}"><i style="width:${x.pct / maxP * 100}%"></i><u style="inset-inline-start:${THR / maxP * 100}%"></u></div>
+          <div class="bar${pass ? '' : ' below'}"><i style="width:${x.pct / maxP * 100}%;background:${c}"></i><u style="inset-inline-start:${THR / maxP * 100}%"></u></div>
         </div>
         <div class="nums"><span class="p">${pct2(x.pct)}</span><span class="c">${fmt(x.votes)} קולות</span></div>
       </div>`;
@@ -276,10 +407,40 @@ footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padd
     const stale = D.citiesAsOf && D.citiesAsOf !== D.asOf ? ` נתוני היישובים נכונים ל־${D.citiesAsOf}.` : '';
     $('citysub').textContent = `${fmt(cities.length)} יישובים שבהם כבר נספרה לפחות קלפי אחת. לחיצה על יישוב פותחת את כל הרשימות.${stale}`;
     renderCities();
+    renderTurnout();
     renderFreshness();
   }
 
+  let tKey = 'turnout', tDir = -1, tShown = 100;
+  const tq = $('tq'), tmore = $('tmore');
+  function renderTurnout(){
+    const el = cities.reduce((a, c) => a + c.eligible, 0), vo = cities.reduce((a, c) => a + c.votes, 0);
+    $('tstats').innerHTML = [
+      ['אחוז הצבעה בקלפיות שנספרו', el ? (vo / el * 100).toFixed(1) + '%' : '–', ' big'],
+      ['הצביעו', fmt(vo), ''], ['בעלי זכות בחירה בקלפיות האלה', fmt(el), '']
+    ].map(t => `<div><span class="k">${t[0]}</span><span class="v${t[2]}">${t[1]}</span></div>`).join('');
+    $('tsub').textContent = `לפי הקלפיות שכבר נספרו ב־${fmt(cities.length)} יישובים. אחוז ההצבעה הכללי ייקבע רק בסוף הספירה. לחיצה על כותרת עמודה ממיינת.`;
+    const term = tq.value.trim();
+    const list = cities.filter(c => !term || c.name.includes(term)).sort((a, b) =>
+      tKey === 'name' ? tDir * a.name.localeCompare(b.name, 'he') : tDir * (a[tKey] - b[tKey]));
+    const page = term ? list : list.slice(0, tShown);
+    $('tbody').innerHTML = page.length ? page.map(c => `<tr><td>${esc(c.name)}</td><td class="n">${fmt(c.eligible)}</td><td class="n">${fmt(c.votes)}</td>
+      <td class="n"><span class="to"><span class="bar"><i style="width:${Math.min(100, c.turnout)}%"></i></span>${c.turnout.toFixed(1)}%</span></td></tr>`).join('')
+      : `<tr><td colspan="4" class="empty">${cities.length ? 'לא נמצא יישוב בשם הזה.' : 'עדיין אין נתוני יישובים.'}</td></tr>`;
+    document.querySelectorAll('.tt th').forEach(th => th.dataset.k === tKey ? th.setAttribute('aria-sort', tDir < 0 ? 'descending' : 'ascending') : th.removeAttribute('aria-sort'));
+    tmore.hidden = !!term || list.length <= tShown;
+    tmore.textContent = `הצגת עוד יישובים (${fmt(list.length - tShown)})`;
+  }
+  document.querySelectorAll('.tt th').forEach(th => th.querySelector('button').addEventListener('click', () => {
+    const k = th.dataset.k;
+    if (k === tKey) tDir = -tDir; else { tKey = k; tDir = k === 'name' ? 1 : -1; }
+    renderTurnout();
+  }));
+  tq.addEventListener('input', renderTurnout);
+  tmore.addEventListener('click', () => { tShown += 100; renderTurnout(); });
+
   const nameOf = l => byL[l] ? byL[l].short : l;
+  const col = l => colorOf[l] || '#8a93ad';
   function cityCard(c, open){
     const [ll, lv] = c.sorted[0] || ['', 0];
     const top = c.sorted.length ? c.sorted[0][1] : 1;
@@ -288,12 +449,13 @@ footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padd
       <summary>
         <div class="chead"><b>${esc(c.name)}</b><span><span class="o">פירוט</span><span class="c">סגירה</span></span></div>
         <div class="cmeta">${ballots}${fmt(c.votes)} קולות · הצבעה ${c.turnout.toFixed(1)}%</div>
+        <div class="spark">${c.sorted.map(([l, v]) => `<i style="flex:${v};background:${col(l)}" title="${esc(nameOf(l))}"></i>`).join('')}</div>
         ${ll ? `<div class="lead"><span class="slip sm">${esc(ll)}</span><span>${esc(nameOf(ll))}</span><span class="pp">${pct2(lv / c.valid * 100)}</span></div>` : ''}
       </summary>
       <div class="mini">
         ${c.sorted.map(([l, v]) => `<div class="mrow">
           <span class="slip sm">${esc(l)}</span>
-          <div class="lbl"><em>${esc(nameOf(l))}</em><div class="bar"><i style="width:${v / top * 100}%"></i></div></div>
+          <div class="lbl"><em>${esc(nameOf(l))}</em><div class="bar"><i style="width:${v / top * 100}%;background:${col(l)}"></i></div></div>
           <span class="v">${pct2(v / c.valid * 100)}<small>${fmt(v)}</small></span>
         </div>`).join('')}
         <div class="cmeta">בעלי זכות בחירה ביישוב: ${fmt(c.eligible)} · כשרים ${fmt(c.valid)} · פסולים ${fmt(c.invalid)}</div>
@@ -318,14 +480,14 @@ footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padd
   moreBtn.addEventListener('click', () => { shown += PAGE; renderCities(); });
 
   function renderFreshness(){
-    const b = $('live');
     if (!D) return;
+    const b = $('live');
     const mins = Math.max(0, Math.round((Date.now() - Date.parse(D.updatedAt)) / 60000));
     const ago = mins < 1 ? 'עכשיו' : mins === 1 ? 'לפני דקה' : mins < 60 ? `לפני ${mins} דקות` : `לפני ${Math.floor(mins / 60)} שע׳ ו־${mins % 60} דק׳`;
-    const bad = status && status.ok === false;
-    b.className = 'badge ' + (bad ? 'stale' : 'live');
-    b.textContent = bad ? 'חלק מהנתונים עלולים לא להיות עדכניים' : 'מתעדכן אוטומטית';
-    $('ago').textContent = `התוצאות השתנו לאחרונה ${ago}`;
+    const bad = (status && status.ok === false) || mins > 30;
+    b.className = 'live' + (bad ? ' stale' : '');
+    b.textContent = bad ? 'הנתונים עלולים לא להיות עדכניים' : 'מתעדכן חי';
+    $('ago').textContent = `עודכן ${ago}`;
   }
 
   async function load(){
@@ -336,15 +498,14 @@ footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padd
         fetch(`status.json?t=${t}`, { cache: 'no-store' }).then(r => r.ok ? r.json() : { ok: true }).catch(() => ({ ok: true }))
       ]);
       status = s;
-      if (!D || d.updatedAt !== D.updatedAt || d.asOf !== D.asOf) { D = d; render(); } else renderFreshness();
+      if (!D || S(d.updatedAt) !== D.updatedAt || S(d.asOf) !== D.asOf) { D = clean(d); render(); } else renderFreshness();
       $('err').hidden = true;
     } catch (e) {
-      $('err').hidden = !!D ? true : false;
-      if (!D) $('err').textContent = 'לא הצלחתי לטעון את הנתונים כרגע. מנסה שוב בעוד דקה.';
+      if (!D) { $('err').hidden = false; $('err').textContent = 'לא הצלחתי לטעון את הנתונים כרגע. מנסה שוב בעוד דקה.'; }
     }
   }
 
-  const views = ['national', 'localities'];
+  const views = ['national', 'localities', 'turnout'];
   function show(v){
     if (!views.includes(v)) v = 'national';
     views.forEach(n => { $('view-' + n).hidden = n !== v; $('tab-' + n).setAttribute('aria-selected', String(n === v)); });
@@ -355,6 +516,7 @@ footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padd
   }));
   window.addEventListener('hashchange', () => show(location.hash.slice(1)));
   show(location.hash.slice(1));
+  drawHemi([], {});
 
   load();
   setInterval(load, 60000);
