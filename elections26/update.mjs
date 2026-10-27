@@ -23,7 +23,10 @@ async function get(url, { binary = false } = {}) {
   for (let i = 0; i < 3; i++) {
     try {
       const res = await fetch(url, { headers: { 'User-Agent': UA, 'Accept-Language': 'he' }, signal: AbortSignal.timeout(30000) });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) {
+        const body = (await res.text().catch(() => '')).replace(/\s+/g, ' ').slice(0, 160);
+        throw new Error(`HTTP ${res.status} server=${res.headers.get('server')} body=${body}`);
+      }
       const buf = Buffer.from(await res.arrayBuffer());
       return { buf, type: res.headers.get('content-type') || '' };
     } catch (e) { lastErr = e; await new Promise(r => setTimeout(r, 2000 * (i + 1))); }
