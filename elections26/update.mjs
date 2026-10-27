@@ -1,5 +1,6 @@
 // Fetches Knesset 26 results from the Central Elections Committee and writes data.json
 // in the shape the dashboard renders. Plain script, no AI. Usage: node update.mjs <outDir>
+// Cheap when nothing changed: reads only the national page and stops if its "נכון ל-" time is the same.
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
 
@@ -120,6 +121,7 @@ async function main() {
   const { buf } = await get(NATIONAL_URL);
   const nat = parseNational(buf.toString('utf8'));
   log('national', nat.asOf, JSON.stringify(nat.national), nat.lists.length, 'lists');
+  if (prev && prev.asOf === nat.asOf) { log('committee time unchanged, nothing to fetch'); return; }
 
   let cities = prev?.cities || [];
   let citiesAsOf = prev?.citiesAsOf || null;

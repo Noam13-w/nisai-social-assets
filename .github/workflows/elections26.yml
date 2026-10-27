@@ -1,6 +1,6 @@
-# Not active yet: move to .github/workflows/elections26.yml once publishing on GitHub Pages is approved.
 # Keeps the Knesset 26 results page on the gh-pages branch up to date.
-# Plain script, no AI. One job loops for ~5h40m (fetch every 6 minutes, commit only on change),
+# Plain script, no AI. One job loops for ~5h40m (checks the committee's time every minute, fetches and
+# commits only when it changed, at most one publish every 2 minutes),
 # then dispatches its own next run, so it needs no cron on the default branch.
 # It stops by itself after STOP_AFTER in elections26/update.mjs; to stop it earlier, disable the workflow.
 name: elections26
@@ -34,7 +34,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Fetch results every 6 minutes
+      - name: Check for new results every minute
         working-directory: site
         run: |
           git config user.name "github-actions[bot]"
@@ -45,14 +45,15 @@ jobs:
             cp ../src/elections26/index.html index.html
             touch .nojekyll
             git add -A
-            if ! git diff --cached --quiet; then
+            if ! git diff --cached --quiet && [ $(( $(date +%s) - ${last:-0} )) -ge 120 ]; then
+              last=$(date +%s)
               git commit -q -m "Update results $(date -u +%H:%M)"
               git push -q origin gh-pages || { git pull -q --rebase origin gh-pages && git push -q origin gh-pages; } || true
             fi
             if node -e "process.exit(Date.now() > Date.parse('2026-11-05T00:00:00+02:00') ? 0 : 1)"; then
               echo "past STOP_AFTER"; echo "STOPPED=1" >> "$GITHUB_ENV"; break
             fi
-            sleep 360
+            sleep 60
           done
       - name: Start the next run
         if: success() && env.STOPPED != '1'
